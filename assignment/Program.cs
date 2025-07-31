@@ -1,4 +1,7 @@
-﻿using static assignment.person;
+﻿using System.ComponentModel;
+using System.Drawing;
+using System.IO.Pipes;
+using static assignment.point;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace assignment
@@ -17,20 +20,37 @@ namespace assignment
             //point3.x = 66;
             //Console.WriteLine(point3.x); 
             #endregion
+            #region q1
             //Define a struct "Person" with properties "Name" and "Age". Create an array of three "Person" objects and populate it with data.
             //Then, write a C# program to display the details of all the persons in the array.
-            person[] people = new person[3];
-            for (int i = 0; i < people.Length; i++)
+            //person[] people = new person[3];
+            //for (int i = 0; i < people.Length; i++)
+            //{
+            //    Console.WriteLine($"enter person number {i + 1} data :");
+            //    Console.WriteLine($"his name :");                                       
+            //    string name = Console.ReadLine();
+            //    Console.WriteLine($"his age :");
+            //    int age = int.Parse(Console.ReadLine());
+            //    people[i] = new person(age, name);
+            //}
+            //person people2 = new person();
+            //people2.displayAllObjects(people); 
+            #endregion
+            #region q2
+            //Create a struct called "Point" to represent a 2D point with properties "X" and "Y". 
+            //Write a C# program that takes two points as input from the user and calculates the 
+            //distance between them.
+            point[] points = new point[2];
+            for (int i = 0; i < points.Length; i++)
             {
-                Console.WriteLine($"enter person number {i + 1} data :");
-                Console.WriteLine($"his name :");                                       
-                string name = Console.ReadLine();
-                Console.WriteLine($"his age :");
-                int age = int.Parse(Console.ReadLine());
-                people[i] = new person(age, name);
+                Console.WriteLine($"enter point {i+1} x then y ");
+                double x = int.Parse(Console.ReadLine());
+                double y = int.Parse(Console.ReadLine());
+                points[i] = new point(x, y);
             }
-            person people2 = new person();
-            people2.displayAllObjects(people);
+            double result = point.distance(points[0], points[1]);
+            Console.WriteLine(result);
+            #endregion
         }
     }
 }
