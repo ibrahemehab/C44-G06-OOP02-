@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.IO.Pipes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -44,24 +45,45 @@ namespace assignment
     //} 
     #endregion
     #region point 
-    public struct point
+    //public struct Point
+    //{
+    //    private double x;
+    //    private double y;
+    //    public Point (double x , double y )
+    //    {
+    //        this.x = x;
+    //        this.y = y;
+    //    }
+    //    public  double Distance( Point other)
+    //    {
+    //        double dx = x - other.x;
+    //        double dy = y - other.y;
+    //        return Math.Sqrt((dx * dx) + (dy * dy));
+
+    //    }
+
+    //}
+    #endregion
+    #region 
+    public struct Person
     {
-        private double X;
-        private double Y;
-        public point (double x , double y )
+        public string Name { get; set; }
+        private int age;
+        public int Age
         {
-            X = x;
-            Y = y;
+            get { return age; }
+            set
+            {
+
+                if (value <= 0) throw new Exception("invalid age");
+                age = value;
+            }
         }
-        public static double distance( point p1 , point p2)
+        public Person(int age , string name)
         {
-            double dx = p2.X - p1.X;
-            double dy = p2.Y - p1.Y;
-            Console.WriteLine("result is :");
-            return Math.Sqrt((dx * dx) + (dy * dy));
-
+            Age = age;
+            Name = name;
         }
-
     }
     #endregion
 

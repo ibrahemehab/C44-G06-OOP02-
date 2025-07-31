@@ -1,7 +1,8 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.IO.Pipes;
-using static assignment.point;
+using static assignment.Person;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace assignment
@@ -40,17 +41,34 @@ namespace assignment
             //Create a struct called "Point" to represent a 2D point with properties "X" and "Y". 
             //Write a C# program that takes two points as input from the user and calculates the 
             //distance between them.
-            point[] points = new point[2];
-            for (int i = 0; i < points.Length; i++)
+            //Point[] points = new Point[2];
+            //for (int i = 0; i < points.Length; i++)
+            //{
+            //    Console.WriteLine($"enter point {i + 1} x then y ");
+            //    double x = double.Parse(Console.ReadLine());
+            //    double y = double.Parse(Console.ReadLine());
+            //    points[i] = new Point(x, y);
+            //}
+            //double result = points[0].Distance(points[1]);
+            //Console.WriteLine("result is :");
+            //Console.WriteLine(result);
+            #endregion
+            #region q3
+            //Create a struct called "Person" with properties "Name" and "Age". Write a C#
+            //program that takes details of 3 persons as input from the user and displays the
+            //name and age of the oldest person.
+            Person[] people = new Person[3];
+            for (int i = 0; i < people.Length; i++)
             {
-                Console.WriteLine($"enter point {i+1} x then y ");
-                double x = int.Parse(Console.ReadLine());
-                double y = int.Parse(Console.ReadLine());
-                points[i] = new point(x, y);
+                Console.WriteLine($"enter person number {i+1} name then age :");
+                string name = Console.ReadLine();
+                int age = int.Parse(Console.ReadLine());
+                people[i] = new Person(age, name);
             }
-            double result = point.distance(points[0], points[1]);
+            string result = helper_to_person.Olderperson(people);
+            Console.WriteLine("older person is :");
             Console.WriteLine(result);
             #endregion
-        }
+    }
     }
 }
